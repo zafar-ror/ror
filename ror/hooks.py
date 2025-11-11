@@ -1,3 +1,6 @@
+import erpnext.stock.doctype.pick_list.pick_list as _pick_list
+import ror.ror.overrides.pick_list as custom_pick_list
+
 app_name = "ror"
 app_title = "Ror"
 app_publisher = "Zafar"
@@ -214,3 +217,6 @@ override_doctype_class = {
 # auth_hooks = [
 # 	"ror.auth.validate"
 # ]
+
+
+_pick_list.get_available_item_locations = custom_pick_list.custom_get_available_item_locations
