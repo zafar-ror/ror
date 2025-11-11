@@ -47,10 +47,27 @@ def custom_get_available_item_locations(
 	# if picked_item_details:
 	# 	locations = filter_locations_by_picked_materials(locations, picked_item_details)
 
-	# if locations:
-	# 	locations = get_locations_based_on_required_qty(locations, required_qty)
+	if locations:
+		locations = get_locations_based_on_required_qty(item_code, from_warehouses, locations, required_qty)
 
 	# if not ignore_validation:
 	# 	validate_picked_materials(item_code, required_qty, locations, picked_item_details)
 
 	return locations
+
+
+def get_locations_based_on_required_qty(item_code, from_warehouses, locations, required_qty):
+	filtered_locations = []
+
+	for location in locations: 
+		if location.qty < required_qty:
+			frappe.throw(f"Item Code: {item_code} - Insufficient stock. Short by {required_qty - location.qty} units in Warehouse: {from_warehouses[0]}.")
+		if location.qty >= required_qty:
+			location.qty = required_qty
+			filtered_locations.append(location)
+			break
+
+		required_qty -= location.qty
+		filtered_locations.append(location)
+
+	return filtered_locations
