@@ -1,5 +1,5 @@
 import erpnext.stock.doctype.pick_list.pick_list as _pick_list
-import ror.ror.overrides.pick_list as custom_pick_list
+import ror.overrides.pick_list as custom_pick_list
 
 app_name = "ror"
 app_title = "Ror"
