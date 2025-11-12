@@ -61,7 +61,7 @@ def get_locations_based_on_required_qty(item_code, from_warehouses, locations, r
 
 	for location in locations: 
 		if location.qty < required_qty:
-			frappe.throw(f"Item Code: {item_code} - Insufficient stock. Short by {required_qty - location.qty} units in Warehouse: {from_warehouses[0]}.")
+			frappe.msgprint(f"Item Code: {item_code} - Insufficient stock. Short by {required_qty - location.qty} units in Warehouse: {from_warehouses[0]}.")
 		if location.qty >= required_qty:
 			location.qty = required_qty
 			filtered_locations.append(location)
