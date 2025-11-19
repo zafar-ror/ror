@@ -111,10 +111,13 @@ app_license = "MIT"
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	# "ToDo": "custom_app.overrides.CustomToDo",
-#     "Pick List": "ror.overrides.pick_list.CustomPickList"
-# }
+override_doctype_class = {
+	# "ToDo": "custom_app.overrides.CustomToDo",
+    # "Pick List": "ror.overrides.pick_list.CustomPickList"
+    "Job Card": "ror.overrides.job_card.CustomJobCard",
+    "Stock Entry":"ror.overrides.stock_entry.CustomStockEntry",
+    "Item": "ror.overrides.stock_entry.CustomItem"
+}
 
 # Document Events
 # ---------------
