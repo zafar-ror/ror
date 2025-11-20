@@ -116,7 +116,7 @@ override_doctype_class = {
     # "Pick List": "ror.overrides.pick_list.CustomPickList"
     "Job Card": "ror.overrides.job_card.CustomJobCard",
     "Stock Entry":"ror.overrides.stock_entry.CustomStockEntry",
-    "Item": "ror.overrides.stock_entry.CustomItem"
+    "Item": "ror.overrides.item.CustomItem"
 }
 
 # Document Events
